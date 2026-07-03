@@ -8,3 +8,11 @@ int get_temperature() {
 
 	return temp;
 }
+
+int get_battery(void) {
+	srand(time(NULL));
+
+	int battery = (rand() % 100) + 1;
+
+	return battery;
+}
