@@ -8,3 +8,128 @@ mean_motion    : 15.49 orbits/day
 Satellite Name : ISS (ZARYA)             
 mean_motion    : 15.49 orbits/day
 ------------------------------------
+[2026-07-08 12:54:59]
+==== Satellite Control Simulator ====
+Satellite Name : ISS (ZARYA)             
+mean_motion    : 15.00 orbits/day
+------------------------------------
+[2026-07-08 12:57:29]
+==== Satellite Control Simulator ====
+Satellite Name : ISS (ZARYA)             
+Norad Id       : 25544
+mean_motion    : 15.00 orbits/day
+------------------------------------
+[2026-07-08 12:59:57]
+==== Satellite Control Simulator ====
+Satellite Name : ISS (ZARYA)             
+Norad Id       : 25544
+mean_motion    : 15.49 orbits/day
+------------------------------------
+[2026-07-08 13:09:19]
+==== Satellite Control Simulator ====
+Satellite Name : ISS (ZARYA)             
+Norad Id       : 25544
+mean_motion    : 15.49 orbits/day
+------------------------------------
+[2026-07-08 13:09:55]
+==== Satellite Control Simulator ====
+Satellite Name : ISS (ZARYA)             
+Norad Id       : 25544
+Classification : U
+mean_motion    : 15.49 orbits/day
+------------------------------------
+[2026-07-08 15:19:24]
+==== Satellite Control Simulator ====
+Satellite Name : ISS (ZARYA)             
+Norad Id       : 25544
+Classification : U
+CosparId	      : 98067A  
+Epoch_Year	  : 26
+Epoch_Day	  : 186.443766
+mean_motion    : 15.49 orbits/day
+------------------------------------
+[2026-07-08 15:21:12]
+==== Satellite Control Simulator ====
+Satellite Name : ISS (ZARYA)             
+Norad Id       : 255447
+Classification : U
+CosparId	      : 98067A  
+Epoch_Year     : 26
+Epoch_Day      : 186.443766
+mean_motion    : 15.49 orbits/day
+------------------------------------
+[2026-07-08 15:27:40]
+==== Satellite Control Simulator ====
+Satellite Name : ISS (ZARYA)             
+Norad Id       : 25544
+Classification : U
+CosparId	      : 98067A  É
+Epoch_Year     : 26
+Epoch_Day      : 186.443766
+Decay Rate1    : 0.000089
+Decay Rate2    : 0.000000
+Mean_motion    : 15.49 orbits/day
+------------------------------------
+[2026-07-08 15:28:04]
+==== Satellite Control Simulator ====
+Satellite Name : ISS (ZARYA)             
+Norad Id       : 25544
+Classification : U
+CosparId	      : 98067A  Ù
+Epoch_Year     : 26
+Epoch_Day      : 186.443766
+Decay Rate1    : 0.000089
+Decay Rate2    : 0.000000
+Mean_motion    : 15.49 orbits/day
+------------------------------------
+[2026-07-08 15:28:53]
+==== Satellite Control Simulator ====
+Satellite Name : ISS (ZARYA)             
+Norad Id       : 25544
+Classification : U
+CosparId       : 98067A  
+Epoch_Year     : 26
+Epoch_Day      : 186.443766
+Decay Rate1    : 0.000089
+Decay Rate2    : 0.000000
+Mean_motion    : 15.49 orbits/day
+------------------------------------
+[2026-07-08 17:15:21]
+==== Satellite Control Simulator ====
+Satellite Name : ISS (ZARYA)             
+Norad Id       : 25544
+Classification : U
+CosparId       : 98067A  ô
+Epoch_Year     : 26
+Epoch_Day      : 186.443766
+Decay Rate1    : 0.000089
+Decay Rate2    : 0.000000
+Bstar          : 17013.000000
+Mean_motion    : 15.49 orbits/day
+------------------------------------
+[2026-07-08 17:17:48]
+==== Satellite Control Simulator ====
+Satellite Name : ISS (ZARYA)             
+Norad Id       : 25544
+Classification : U
+CosparId       : 98067A  „
+Epoch_Year     : 26
+Epoch_Day      : 186.443766
+Decay Rate1    : 0.000089
+Decay Rate2    : 0.000000
+Bstar          : 17013.000000
+Mean_motion    : 15.49 orbits/day
+------------------------------------
+[2026-07-08 17:27:16]
+==== Satellite Control Simulator ====
+Satellite Name : ISS (ZARYA)             
+Norad Id       : 25544
+Classification : U
+CosparId       : 98067A  
+Epoch_Year     : 26
+Epoch_Day      : 186.443766
+Decay Rate1    : 0.000089
+Decay Rate2    : 0.000000
+Bstar          : 17013.000000
+Mean_motion    : 15.49 orbits/day
+------------------------------------

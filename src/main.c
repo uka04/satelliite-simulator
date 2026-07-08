@@ -30,12 +30,36 @@ int main() {
         printf("[%s]\n", time_str);
         printf("==== Satellite Control Simulator ====\n");
         printf("Satellite Name : %s\n", my_satellite.name);
-        printf("mean_motion    : %.2f orbits/day\n", my_satellite.mean_motion);
+
+		// line 2
+		printf("Norad Id       : %d\n", my_satellite.NoradId);
+		printf("Classification : %s\n", my_satellite.Classification);
+		printf("CosparId       : %s\n", my_satellite.CosparId);
+		printf("Epoch_Year     : %d\n", my_satellite.Epoch_Year);
+		printf("Epoch_Day      : %f\n", my_satellite.Epoch_Day);
+		printf("Decay Rate1    : %f\n", my_satellite.Decay_Rate1);
+		printf("Decay Rate2    : %f\n", my_satellite.Decay_Rate2);
+		printf("Bstar          : %f\n", my_satellite.Bstar);
+
+		// line 3
+        printf("Mean_motion    : %.2f orbits/day\n", my_satellite.mean_motion);
         
         fprintf(log_file, "[%s]\n", time_str);
         fprintf(log_file, "==== Satellite Control Simulator ====\n");
         fprintf(log_file, "Satellite Name : %s\n", my_satellite.name);
-        fprintf(log_file, "mean_motion    : %.2f orbits/day\n", my_satellite.mean_motion);
+
+		// line 2
+		fprintf(log_file, "Norad Id       : %d\n", my_satellite.NoradId);
+		fprintf(log_file, "Classification : %s\n", my_satellite.Classification);
+		fprintf(log_file, "CosparId       : %s\n", my_satellite.CosparId);
+		fprintf(log_file, "Epoch_Year     : %d\n", my_satellite.Epoch_Year);
+		fprintf(log_file, "Epoch_Day      : %f\n", my_satellite.Epoch_Day);
+		fprintf(log_file, "Decay Rate1    : %f\n", my_satellite.Decay_Rate1);
+		fprintf(log_file, "Decay Rate2    : %f\n", my_satellite.Decay_Rate2);
+		fprintf(log_file, "Bstar          : %f\n", my_satellite.Bstar);
+
+		// line 3
+        fprintf(log_file, "Mean_motion    : %.2f orbits/day\n", my_satellite.mean_motion);
         fprintf(log_file, "------------------------------------\n");
     } else {
         printf("Error: Failed to read satellite data.\n");
