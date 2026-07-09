@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <math.h>
 #include "sensor.h"
 
 int read_tle_data(const char *file_path, SatelliteData *out_data) {
@@ -14,17 +15,23 @@ int read_tle_data(const char *file_path, SatelliteData *out_data) {
 	char line3[80];
 
 	// line 2
-	char NoradId_buf[10];
-	char Class_buf[2];
-	char CosparId_buf[10];
-	char Epoch_Year_buf[3];
-	char Epoch_Day_buf[13];
-	char Decay_Rate1_buf[11];
-	char Decay_Rate2_buf[9];
-	char Bstar_buf[9];
+	char NoradId_buf[10] = {0};
+	char Class_buf[5] = {0};
+	char CosparId_buf[15] = {0};
+	char Epoch_Year_buf[5] = {0};
+	char Epoch_Day_buf[15] = {0};
+	char Decay_Rate1_buf[15] = {0};
+	char Decay_Rate2_buf[10] = {0};
+	char Bstar_buf[15] = {0};
 
 	// line 3
-	char motion_buf[12];
+	char Inclination_buf[15] = {0};
+	char Raan_buf[15] = {0};
+	char Eccentricity_buf[15] = {0};
+	char Perigee_buf[15] = {0};
+	char Mean_Anomaly_buf[15] = {0};
+	char Motion_buf[15] = {0};
+	char Revolution_Number_buf[10] = {0};
 	
 	if (fgets(line1, sizeof(line1), fp) != NULL &&
         fgets(line2, sizeof(line2), fp) != NULL &&
@@ -37,46 +44,67 @@ int read_tle_data(const char *file_path, SatelliteData *out_data) {
 			
 			// NORAD
 			strncpy(NoradId_buf, &line2[2], 5);
-			NoradId_buf[9] = '\0';
 			out_data->NoradId = atoi(NoradId_buf);
 
 			// Classification
 			strncpy(Class_buf, &line2[7], 1);
-			Class_buf[1] = '\0';
 			strcpy(out_data->Classification, Class_buf);
 
 			// CosparId
 			strncpy(CosparId_buf, &line2[9], 8);
 			strcpy(out_data->CosparId, CosparId_buf);
-			out_data->CosparId[sizeof(out_data->CosparId) -1] = '\0';
 
 			// Epoch
 			strncpy(Epoch_Year_buf, &line2[18], 2);
-			Epoch_Year_buf[2] = '\0';
 			out_data->Epoch_Year = atoi(Epoch_Year_buf);
 
 			strncpy(Epoch_Day_buf, &line2[20], 12);
-			Epoch_Day_buf[12] = '\0';
 			out_data->Epoch_Day = atof(Epoch_Day_buf);
 
 			// Decay_Rate
 			strncpy(Decay_Rate1_buf, &line2[33], 10);
-			Decay_Rate1_buf[10] = '\0';
 			out_data->Decay_Rate1 = atof(Decay_Rate1_buf);
 			
 			strncpy(Decay_Rate2_buf, &line2[44], 8);
-			Decay_Rate2_buf[8] = '\0';
 			out_data->Decay_Rate2 = atof(Decay_Rate2_buf);
 
 			// Bstar
-			strncpy(Bstar_buf, &line2[53], 8);
-			Bstar_buf[8] = '\0';
-			out_data->Bstar = atof(Bstar_buf);
+			char bstar_mantissa[7] = {0};
+			char bstar_exp[3] = {0};
+			strncpy(bstar_mantissa, &line2[53], 6);
+			strncpy(bstar_exp, &line2[59], 2);
+			double mantissa = atof(bstar_mantissa) * 1e-5;
+			double exponent = atof(bstar_exp);
+			out_data->Bstar = mantissa * pow(10, exponent);
 
-			// Mean-Motion
-            strncpy(motion_buf, &line3[52], 11);
-            motion_buf[11] = '\0';
-            out_data->mean_motion = atof(motion_buf);
+			// line 3
+			// Inclination
+			strncpy(Inclination_buf, &line3[8], 8);
+			out_data->Inclination = atof(Inclination_buf);
+
+			// Raan
+			strncpy(Raan_buf, &line3[17], 8);
+			out_data->Raan = atof(Raan_buf);
+
+			// Eccentricity
+			strncpy(Eccentricity_buf, &line3[26], 7);
+			out_data->Eccentricity = atof(Eccentricity_buf) * 0.0000001;
+
+			// Perigee
+			strncpy(Perigee_buf, &line3[34], 8);
+			out_data->Perigee = atof(Perigee_buf);
+
+			// Mean_Anomaly
+			strncpy(Mean_Anomaly_buf, &line3[43], 8);
+			out_data->Mean_Anomaly = atof(Mean_Anomaly_buf);
+
+			// Mean_Motion
+			strncpy(Motion_buf, &line3[52], 11);
+            out_data->Mean_Motion = atof(Motion_buf);
+
+			// Revolution_Number
+			strncpy(Revolution_Number_buf, &line3[63], 5);
+            out_data->Revolution_Number = atoi(Revolution_Number_buf);
 
 		fclose(fp);
 		return 1;

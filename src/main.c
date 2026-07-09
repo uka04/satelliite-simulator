@@ -29,9 +29,10 @@ int main() {
 	if (read_tle_data("data/iss.tle", &my_satellite)) {
         printf("[%s]\n", time_str);
         printf("==== Satellite Control Simulator ====\n");
-        printf("Satellite Name : %s\n", my_satellite.name);
+        printf("Satellite Name : %s\n\n", my_satellite.name);
 
 		// line 2
+		printf("-- Line 2 Info --\n");
 		printf("Norad Id       : %d\n", my_satellite.NoradId);
 		printf("Classification : %s\n", my_satellite.Classification);
 		printf("CosparId       : %s\n", my_satellite.CosparId);
@@ -39,16 +40,24 @@ int main() {
 		printf("Epoch_Day      : %f\n", my_satellite.Epoch_Day);
 		printf("Decay Rate1    : %f\n", my_satellite.Decay_Rate1);
 		printf("Decay Rate2    : %f\n", my_satellite.Decay_Rate2);
-		printf("Bstar          : %f\n", my_satellite.Bstar);
+		printf("Bstar          : %.8f\n\n", my_satellite.Bstar);
 
 		// line 3
-        printf("Mean_motion    : %.2f orbits/day\n", my_satellite.mean_motion);
+		printf("-- Line 3 Info --\n");
+		printf("Inclination       : %.4f\n", my_satellite.Inclination);
+		printf("Raan              : %.4f\n", my_satellite.Raan);
+		printf("Eccentricity      : %.7f\n", my_satellite.Eccentricity);
+		printf("Perigee           : %.4f\n", my_satellite.Perigee);
+		printf("Mean_Anomaly      : %.4f\n", my_satellite.Mean_Anomaly);
+        printf("Mean_Motion       : %.2f orbits/day\n", my_satellite.Mean_Motion);
+		printf("Revolution_Number : %d\n", my_satellite.Revolution_Number);
         
         fprintf(log_file, "[%s]\n", time_str);
         fprintf(log_file, "==== Satellite Control Simulator ====\n");
-        fprintf(log_file, "Satellite Name : %s\n", my_satellite.name);
+        fprintf(log_file, "Satellite Name : %s\n\n", my_satellite.name);
 
 		// line 2
+		fprintf(log_file, "-- Line 2 Info --\n");
 		fprintf(log_file, "Norad Id       : %d\n", my_satellite.NoradId);
 		fprintf(log_file, "Classification : %s\n", my_satellite.Classification);
 		fprintf(log_file, "CosparId       : %s\n", my_satellite.CosparId);
@@ -56,10 +65,17 @@ int main() {
 		fprintf(log_file, "Epoch_Day      : %f\n", my_satellite.Epoch_Day);
 		fprintf(log_file, "Decay Rate1    : %f\n", my_satellite.Decay_Rate1);
 		fprintf(log_file, "Decay Rate2    : %f\n", my_satellite.Decay_Rate2);
-		fprintf(log_file, "Bstar          : %f\n", my_satellite.Bstar);
+		fprintf(log_file, "Bstar          : %.8f\n\n", my_satellite.Bstar);
 
 		// line 3
-        fprintf(log_file, "Mean_motion    : %.2f orbits/day\n", my_satellite.mean_motion);
+		fprintf(log_file, "-- Line 3 Info --\n");
+		fprintf(log_file, "Inclination       : %.4f\n", my_satellite.Inclination);
+		fprintf(log_file, "Raan              : %.4f\n", my_satellite.Raan);
+		fprintf(log_file, "Eccentricity      : %.7f\n", my_satellite.Eccentricity);
+		fprintf(log_file, "Perigee           : %.4f\n", my_satellite.Perigee);
+		fprintf(log_file, "Mean_Anomaly      : %.4f\n", my_satellite.Mean_Anomaly);
+        fprintf(log_file, "Mean_motion       : %.2f orbits/day\n", my_satellite.Mean_Motion);
+		fprintf(log_file, "Revolution_Number : %d\n", my_satellite.Revolution_Number);
         fprintf(log_file, "------------------------------------\n");
     } else {
         printf("Error: Failed to read satellite data.\n");
