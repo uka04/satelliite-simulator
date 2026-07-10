@@ -22,6 +22,14 @@ typedef struct {
 	int Revolution_Number;
 } SatelliteData;
 
+typedef struct {
+	double Day_Distance_km;
+	double Period_min;
+	double Data_Age_hours;
+} SatelliteMoreInfo;
+
+
 int read_tle_data(const char *file_path, SatelliteData *out_data);
+void calculate_more_info(const SatelliteData *tle, SatelliteMoreInfo *out_info);
 
 #endif

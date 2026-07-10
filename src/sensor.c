@@ -2,6 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <math.h>
+#include <time.h>
 #include "sensor.h"
 
 int read_tle_data(const char *file_path, SatelliteData *out_data) {
@@ -109,9 +110,41 @@ int read_tle_data(const char *file_path, SatelliteData *out_data) {
 		fclose(fp);
 		return 1;
         }
-	
+
 	fclose(fp);
 	return 0;
+}
+
+void calculate_more_info(const SatelliteData *tle, SatelliteMoreInfo *out_info) {
+	if (tle == NULL || out_info == NULL) return;
+
+	out_info->Day_Distance_km = 42000 * tle->Mean_Motion;
+	out_info->Period_min = 1440 / tle->Mean_Motion;
+
+	time_t current_time = time(NULL);
+
+	int full_year = (tle->Epoch_Year < 57) ? (2000 + tle->Epoch_Year) : (1900 + tle->Epoch_Year);
+
+	struct tm epoch_base_tm = {0};		// epoch base 00:00:00
+	epoch_base_tm.tm_year = full_year - 1900;
+	epoch_base_tm.tm_mon = 0;
+	epoch_base_tm.tm_mday = 1;
+	epoch_base_tm.tm_hour = 0;
+	epoch_base_tm.tm_min = 0;
+	epoch_base_tm.tm_sec = 0;
+	epoch_base_tm.tm_isdst = -1;
+
+	// 2026 01 01 sec value
+	time_t base_time_secs = mktime(&epoch_base_tm);
+
+	// 2026 01 01 sec + epoch day sec, Epoch Day start +1day (1day = 86400sec)
+	double tle_epoch_secs = base_time_secs + ((tle->Epoch_Day - 1.0) * 86400);
+
+	// current sec -  tle sec
+	double age_in_seconds = difftime(current_time, (time_t)tle_epoch_secs);
+
+	// sec -> hour
+	out_info->Data_Age_hours = age_in_seconds / 3600.0;
 }
 
 

@@ -290,3 +290,206 @@ Mean_Anomaly      : 101.2595
 Mean_motion       : 15.49 orbits/day
 Revolution_Number : 57458
 ------------------------------------
+[2026-07-10 08:30:53]
+==== Satellite Control Simulator ====
+Satellite Name : ISS (ZARYA)             
+
+-- Line 2 Info --
+Norad Id       : 25544
+Classification : U
+CosparId       : 98067A  
+Epoch_Year     : 26
+Epoch_Day      : 186.443766
+Decay Rate1    : 0.000089
+Decay Rate2    : 0.000000
+Bstar          : 0.00017013
+
+-- Line 3 Info --
+Inclination       : 51.6303
+Raan              : 209.7275
+Eccentricity      : 0.0006727
+Perigee           : 258.7638
+Mean_Anomaly      : 101.2595
+Mean_motion       : 15.49 orbits/day
+Revolution_Number : 57458
+------------------------------------
+[2026-07-10 08:37:28]
+==== Satellite Control Simulator ====
+Satellite Name : ISS (ZARYA)             
+
+-- Line 2 Info --
+Norad Id       : 25544
+Classification : U
+CosparId       : 98067A  
+Epoch_Year     : 26
+Epoch_Day      : 186.443766
+Decay Rate1    : 0.000089
+Decay Rate2    : 0.000000
+Bstar          : 0.00017013
+
+-- Line 3 Info --
+Inclination       : 51.6303
+Raan              : 209.7275
+Eccentricity      : 0.0006727
+Perigee           : 258.7638
+Mean_Anomaly      : 101.2595
+Mean_motion       : 15.489060 orbits/day
+Revolution_Number : 57458
+------------------------------------
+[2026-07-10 08:39:06]
+==== Satellite Control Simulator ====
+Satellite Name : ISS (ZARYA)             
+
+-- Line 2 Info --
+Norad Id       : 25544
+Classification : U
+CosparId       : 98067A  
+Epoch_Year     : 26
+Epoch_Day      : 186.443766
+Decay Rate1    : 0.000089
+Decay Rate2    : 0.000000
+Bstar          : 0.00017013
+
+-- Line 3 Info --
+Inclination       : 51.6303
+Raan              : 209.7275
+Eccentricity      : 0.0006727
+Perigee           : 258.7638
+Mean_Anomaly      : 101.2595
+Mean_motion       : 15.48905966 orbits/day
+Revolution_Number : 57458
+------------------------------------
+[2026-07-10 09:15:58]
+==== Satellite Control Simulator ====
+Satellite Name : ISS (ZARYA)             
+
+-- Line 2 Info --
+Norad Id       : 25544
+Classification : U
+CosparId       : 98067A  
+Epoch_Year     : 26
+Epoch_Day      : 186.443766
+Decay Rate1    : 0.000089
+Decay Rate2    : 0.000000
+Bstar          : 0.00017013
+
+-- Line 3 Info --
+Inclination       : 51.6303
+Raan              : 209.7275
+Eccentricity      : 0.0006727
+Perigee           : 258.7638
+Mean_Anomaly      : 101.2595
+Mean_motion       : 15.48905966 orbits/day
+Revolution_Number : 57458
+-- More Info --
+Day_Distance_km   : 650540.505720
+------------------------------------
+[2026-07-10 09:20:37]
+==== Satellite Control Simulator ====
+Satellite Name : ISS (ZARYA)             
+
+-- Line 2 Info --
+Norad Id       : 25544
+Classification : U
+CosparId       : 98067A  
+Epoch_Year     : 26
+Epoch_Day      : 186.443766
+Decay Rate1    : 0.000089
+Decay Rate2    : 0.000000
+Bstar          : 0.00017013
+
+-- Line 3 Info --
+Inclination       : 51.6303
+Raan              : 209.7275
+Eccentricity      : 0.0006727
+Perigee           : 258.7638
+Mean_Anomaly      : 101.2595
+Mean_motion       : 15.48905966 orbits/day
+Revolution_Number : 57458
+
+-- More Info --
+Day_Distance_km   : 650540.505720
+Period_min        : 92.968846
+------------------------------------
+[2026-07-10 09:23:19]
+==== Satellite Control Simulator ====
+Satellite Name : ISS (ZARYA)             
+
+-- Line 2 Info --
+Norad Id       : 25544
+Classification : U
+CosparId       : 98067A  
+Epoch_Year     : 26
+Epoch_Day      : 186.443766
+Decay Rate1    : 0.000089
+Decay Rate2    : 0.000000
+Bstar          : 0.00017013
+
+-- Line 3 Info --
+Inclination       : 51.6303
+Raan              : 209.7275
+Eccentricity      : 0.0006727
+Perigee           : 258.7638
+Mean_Anomaly      : 101.2595
+Mean_motion       : 15.48905966 orbits/day
+Revolution_Number : 57458
+
+-- More Info --
+Day_Distance_km   : Around 650540.505720
+Period_min        : Around 92.968846
+------------------------------------
+[2026-07-10 10:27:32]
+==== Satellite Control Simulator ====
+Satellite Name : ISS (ZARYA)             
+
+-- Line 2 Info --
+Norad Id       : 25544
+Classification : U
+CosparId       : 98067A  
+Epoch_Year     : 26
+Epoch_Day      : 186.443766
+Decay Rate1    : 0.000089
+Decay Rate2    : 0.000000
+Bstar          : 0.00017013
+
+-- Line 3 Info --
+Inclination       : 51.6303
+Raan              : 209.7275
+Eccentricity      : 0.0006727
+Perigee           : 258.7638
+Mean_Anomaly      : 101.2595
+Mean_motion       : 15.48905966 orbits/day
+Revolution_Number : 57458
+
+-- More Info --
+Day_Distance_km   : Around 650540.505720
+Period_min        : Around 92.968846
+------------------------------------
+[2026-07-10 10:27:55]
+==== Satellite Control Simulator ====
+Satellite Name : ISS (ZARYA)             
+
+-- Line 2 Info --
+Norad Id       : 25544
+Classification : U
+CosparId       : 98067A  
+Epoch_Year     : 26
+Epoch_Day      : 186.443766
+Decay Rate1    : 0.000089
+Decay Rate2    : 0.000000
+Bstar          : 0.00017013
+
+-- Line 3 Info --
+Inclination       : 51.6303
+Raan              : 209.7275
+Eccentricity      : 0.0006727
+Perigee           : 258.7638
+Mean_Anomaly      : 101.2595
+Mean_motion       : 15.48905966 orbits/day
+Revolution_Number : 57458
+
+-- More Info --
+Day_Distance_km   : Around 650540.505720
+Period_min        : Around 92.968846
+Data Age          : 119.81 hours ago
+------------------------------------

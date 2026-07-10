@@ -25,8 +25,11 @@ int main() {
 	get_current_time_str(time_str, sizeof(time_str));	
 	
 	SatelliteData my_satellite;
+	SatelliteMoreInfo my_info;
 
 	if (read_tle_data("data/iss.tle", &my_satellite)) {
+		calculate_more_info(&my_satellite, &my_info);
+		
         printf("[%s]\n", time_str);
         printf("==== Satellite Control Simulator ====\n");
         printf("Satellite Name : %s\n\n", my_satellite.name);
@@ -49,8 +52,14 @@ int main() {
 		printf("Eccentricity      : %.7f\n", my_satellite.Eccentricity);
 		printf("Perigee           : %.4f\n", my_satellite.Perigee);
 		printf("Mean_Anomaly      : %.4f\n", my_satellite.Mean_Anomaly);
-        printf("Mean_Motion       : %.2f orbits/day\n", my_satellite.Mean_Motion);
-		printf("Revolution_Number : %d\n", my_satellite.Revolution_Number);
+        printf("Mean_Motion       : %.8f orbits/day\n", my_satellite.Mean_Motion);
+		printf("Revolution_Number : %d\n\n", my_satellite.Revolution_Number);
+
+		// more Info
+		printf("-- More Info --\n");
+		printf("Day_Distance_km   : Around %f\n", my_info.Day_Distance_km);
+		printf("Period_min        : Around %f\n", my_info.Period_min);
+		printf("Data Age          : %.2f hours ago\n", my_info.Data_Age_hours);
         
         fprintf(log_file, "[%s]\n", time_str);
         fprintf(log_file, "==== Satellite Control Simulator ====\n");
@@ -74,8 +83,14 @@ int main() {
 		fprintf(log_file, "Eccentricity      : %.7f\n", my_satellite.Eccentricity);
 		fprintf(log_file, "Perigee           : %.4f\n", my_satellite.Perigee);
 		fprintf(log_file, "Mean_Anomaly      : %.4f\n", my_satellite.Mean_Anomaly);
-        fprintf(log_file, "Mean_motion       : %.2f orbits/day\n", my_satellite.Mean_Motion);
-		fprintf(log_file, "Revolution_Number : %d\n", my_satellite.Revolution_Number);
+        fprintf(log_file, "Mean_motion       : %.8f orbits/day\n", my_satellite.Mean_Motion);
+		fprintf(log_file, "Revolution_Number : %d\n\n", my_satellite.Revolution_Number);
+
+		// more Info
+		fprintf(log_file, "-- More Info --\n");
+		fprintf(log_file, "Day_Distance_km   : Around %f\n", my_info.Day_Distance_km);
+		fprintf(log_file, "Period_min        : Around %f\n", my_info.Period_min);
+		fprintf(log_file, "Data Age          : %.2f hours ago\n", my_info.Data_Age_hours);
         fprintf(log_file, "------------------------------------\n");
     } else {
         printf("Error: Failed to read satellite data.\n");
