@@ -1,5 +1,12 @@
+#include <math.h>
 #ifndef SENSOR_H
 #define SENSOR_H
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+struct elsetrec;
 
 typedef struct {
 	char name[30];
@@ -23,14 +30,24 @@ typedef struct {
 } SatelliteData;
 
 typedef struct {
+	double x, y, z;
+	double vx, vy, vz;
+	double lat, lon, alt;
+} SatellitePosition;
+
+typedef struct {
 	double Day_Distance_km;
 	double Period_min;
 	double Data_Age_hours;
 } SatelliteMoreInfo;
 
-
 int read_tle_data(const char *file_path, SatelliteData *out_data);
 void calculate_more_info(const SatelliteData *tle, SatelliteMoreInfo *out_info);
 int is_tle_file(const char *filename);
+
+int get_satellite_position(const SatelliteData *tle, double minutes_past_epoch, SatellitePosition *out_pos);
+#ifdef __cplusplus
+}
+#endif
 
 #endif

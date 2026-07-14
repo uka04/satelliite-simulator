@@ -2,6 +2,7 @@
 #include <time.h>
 #include <string.h>
 #include <dirent.h>
+#include <math.h>
 #include "sensor.h"
 
 #define MAX_SATELLITES 20
@@ -102,6 +103,23 @@ int main() {
         printf("Mean_Motion       : %.8f orbits/day\n", my_satellite.Mean_Motion);
 		printf("Revolution_Number : %d\n\n", my_satellite.Revolution_Number);
 
+		// SGP4 Info
+		double minutes_past_epoch = my_info.Data_Age_hours * 60.0;
+
+		SatellitePosition pos;
+		// result of calculation
+		int sgp4_ok = get_satellite_position(&my_satellite, minutes_past_epoch, &pos);
+
+		if (sgp4_ok) {
+			printf("-- SGP4 Real-time Position --\n");
+			printf("Latitude      : %.4f deg\n", pos.lat);
+			printf("Longtitude    : %.4f deg\n", pos.lon);
+			printf("Altitude      : %.2f km\n", pos.alt);
+			printf("Speed         : %.2f km/s\n\n",sqrt(pos.vx*pos.vx + pos.vy*pos.vy + pos.vz*pos.vz));
+		} else {
+			printf("SGP4 Calculation Failed.\n\n");
+		}
+
 		// more Info
 		printf("-- More Info --\n");
 		printf("Day_Distance_km   : Around %f\n", my_info.Day_Distance_km);
@@ -132,6 +150,17 @@ int main() {
 		fprintf(log_file, "Mean_Anomaly      : %.4f\n", my_satellite.Mean_Anomaly);
         fprintf(log_file, "Mean_motion       : %.8f orbits/day\n", my_satellite.Mean_Motion);
 		fprintf(log_file, "Revolution_Number : %d\n\n", my_satellite.Revolution_Number);
+
+		// SGP4 Info
+		if (sgp4_ok) {
+			fprintf(log_file, "-- SGP4 Real-time Position --\n");
+			fprintf(log_file, "Latitude      : %.4f deg\n", pos.lat);
+			fprintf(log_file, "Longtitude    : %.4f deg\n", pos.lon);
+			fprintf(log_file, "Altitude      : %.2f km\n", pos.alt);
+			fprintf(log_file, "Speed         : %.2f km/s\n\n",sqrt(pos.vx*pos.vx + pos.vy*pos.vy + pos.vz*pos.vz));
+		} else {
+			fprintf(log_file, "SGP4 Calculation Failed.\n\n");
+		}
 
 		// more Info
 		fprintf(log_file, "-- More Info --\n");
