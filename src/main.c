@@ -79,6 +79,9 @@ void run_simulator(const char *file_path) {
 	int sgp4_ok = 0;
 	char time_str[30];
 
+	double current_speed = 0.0;
+	double prev_speed = 0.0;
+
 	if (!read_tle_data(file_path, &my_satellite)) {
 		printf("Error: Failed to read satellite data.\n");
 		return;
@@ -111,6 +114,15 @@ void run_simulator(const char *file_path) {
 
 		print_satellite_info(stdout, time_str, &my_satellite, &my_info, &pos, sgp4_ok);
 
+		// calculate speed
+        if (sgp4_ok) {
+            current_speed = sqrt(pos.vx*pos.vx + pos.vy*pos.vy + pos.vz*pos.vz);
+            
+            check_event_system(&pos, &my_info, current_speed, prev_speed);
+            
+            prev_speed = current_speed;
+        }
+			
 		fflush(stdout);
 		sleep(1);
 	}

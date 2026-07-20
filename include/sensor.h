@@ -52,6 +52,9 @@ void update_satellite(const SatelliteData *tle, const SatelliteMoreInfo *info,
 							SatellitePosition *out_pos, int *out_sgp4_ok);
 void print_satellite_info(FILE *stream, const char *time_str, const SatelliteData *tle, 
 							const SatelliteMoreInfo *info, const SatellitePosition *pos, int sgp4_ok);
+
+void check_event_system(const SatellitePosition *pos, const SatelliteMoreInfo *info, double current_speed, double prev_speed);
+
 void run_simulator(const char *file_path);
 
 #ifdef __cplusplus

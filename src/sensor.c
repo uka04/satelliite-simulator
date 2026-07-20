@@ -159,4 +159,31 @@ void calculate_more_info(const SatelliteData *tle, SatelliteMoreInfo *out_info) 
 	out_info->Data_Age_hours = age_in_seconds / 3600.0;
 }
 
+void check_event_system(const SatellitePosition *pos, const SatelliteMoreInfo *info, double current_speed, double prev_speed) {
+	printf("\n-- [Event System Log] --\n");
+	int event_triggered = 0;
+	
+	// altitude
+	if (pos->alt < 150.0) {
+		printf("\033[1;31m[CRITICAL] REENTRY RISK: Satellite collaspsing! (%.2f km)!\033[0m\n", pos->alt);
+		event_triggered = 1;
+	} else if (pos->alt < 350.0) {
+		printf("\033[1;33m[WARNING] High atmospheric drag. Low altitude. (%.2f km).\033[0m\n", pos->alt);
+		event_triggered = 1;
+	}
+
+	// speed 
+	if (prev_speed > 0.0 && fabs(current_speed - prev_speed) > 0.005) {
+		printf("\033[1;33m[ALERT] ORBIT CHANGED: Speed maneuver detected! (Delta V: %.4f km/s)\033[0m\n", fabs(current_speed - prev_speed));
+        event_triggered = 1;
+	}
+
+	// old epoch
+	if (info->Data_Age_hours > 72.0) {
+        printf("\033[1;33m[WARNING] UPDATE TLE: Satellite data is old (%.1f hours ago). Update required.\033[0m\n", info->Data_Age_hours);
+        event_triggered = 1;
+    }
+}
+
+
 
