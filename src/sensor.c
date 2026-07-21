@@ -84,7 +84,7 @@ int read_tle_data(const char *file_path, SatelliteData *out_data) {
 			// Bstar
 			char bstar_mantissa[7] = {0};
 			char bstar_exp[3] = {0};
-			strncpy(bstar_mantissa, &line2[53], 6);
+			strncpy(bstar_mantissa, &line2[54], 6);
 			strncpy(bstar_exp, &line2[59], 2);
 			double mantissa = atof(bstar_mantissa) * 1e-5;
 			double exponent = atof(bstar_exp);
@@ -183,6 +183,18 @@ void check_event_system(const SatellitePosition *pos, const SatelliteMoreInfo *i
         printf("\033[1;33m[WARNING] UPDATE TLE: Satellite data is old (%.1f hours ago). Update required.\033[0m\n", info->Data_Age_hours);
         event_triggered = 1;
     }
+
+	// in polar
+	if (fabs(pos->lat) > 80.0) {
+		printf("\n033[1;32m[INFO] POLAR PASS: Passing over the polar region (Lat: %.2f deg).\033[0m\n", pos->lat);
+		event_triggered = 1;
+	}
+
+	// no event
+	if (!event_triggered) {
+        printf("[INFO] No special events.\n");
+    }
+	printf("-------------------\n");
 }
 
 
